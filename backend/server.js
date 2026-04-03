@@ -40,14 +40,6 @@ function authMiddleware(req, res, next) {
 // Initialize database and tables
 async function initializeDatabase() {
   try {
-    const connection = await mysql.createConnection({
-      host: process.env.DB_HOST || 'localhost',
-      user: process.env.DB_USER || 'root',
-      password: process.env.DB_PASSWORD || ''
-    });
-
-    await connection.query(`CREATE DATABASE IF NOT EXISTS rekap_nilai_db`);
-    await connection.end();
 
     const conn = await pool.getConnection();
     
